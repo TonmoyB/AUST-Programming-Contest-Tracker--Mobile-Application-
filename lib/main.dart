@@ -56,15 +56,15 @@ class HomeActivity extends StatelessWidget {
                   currentAccountPicture: null,
                 )
             ),
-            ListTile(
+            const ListTile(
                 leading: Icon(Icons.access_alarm),
                 title: Text("ICPC")
             ),
-            ListTile(
+            const ListTile(
                 leading: Icon(Icons.access_alarm),
                 title: Text("IUPC")
             ),
-            ListTile(
+            const ListTile(
                 leading: Icon(Icons.access_alarm),
                 title: Text("NCPC")
             )
