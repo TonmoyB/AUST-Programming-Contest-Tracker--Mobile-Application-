@@ -1,6 +1,3 @@
-import 'dart:io';
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -28,13 +25,15 @@ class MyApp extends StatelessWidget{
 
 class HomeActivity extends StatelessWidget {
   const HomeActivity({super.key});
-
-
   @override
   Widget build(BuildContext context) {
 
+    int _selectedIndex = 0;
     return Scaffold(
-      appBar: AppBar(title: Text("AUSTPC Tracker",style: TextStyle(fontFamily: 'Georgia')),
+      appBar: AppBar(
+        title: Text("AUST Programming Contest Tracker",
+            style: TextStyle(fontFamily: 'Consolas')
+        ),
         centerTitle: true,
         toolbarHeight: 110,
         backgroundColor: Colors.green,
@@ -43,35 +42,18 @@ class HomeActivity extends StatelessWidget {
       ),
 
       body: Text(''),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.add_alarm), label: "ICPC"),
+          BottomNavigationBarItem(icon: Icon(Icons.add_alarm), label: "IUPC"),
+          BottomNavigationBarItem(icon: Icon(Icons.add_alarm), label: "NCPC")
+        ],
+        currentIndex: _selectedIndex,
+        onTap: (index) {
+          _selectedIndex = index;
+        },
+      ),
 
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            DrawerHeader(
-              padding: EdgeInsets.all(0),
-                child: UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(color: Colors.black),
-                  accountName: Text("AUST\nProgramming Contest Tracker"),
-                  accountEmail: null,
-                  currentAccountPicture: null,
-                )
-            ),
-            const ListTile(
-                leading: Icon(Icons.access_alarm),
-                title: Text("ICPC")
-            ),
-            const ListTile(
-                leading: Icon(Icons.access_alarm),
-                title: Text("IUPC")
-            ),
-            const ListTile(
-                leading: Icon(Icons.access_alarm),
-                title: Text("NCPC")
-            )
-          ]
-        ),
-      ), //Left
-      // endDrawer: , //Right
 
     );
   }
